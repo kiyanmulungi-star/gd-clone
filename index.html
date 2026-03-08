@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GD Clone</title>
+  <style>
+    html,body{height:100%;margin:0;background:#071018;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    #stageWrap{width:90vw;height:90vh;max-width:1400px;max-height:900px;display:flex;align-items:center;justify-content:center}
+    canvas{display:block;width:100%;height:100%;touch-action:none;background:transparent}
+    img.hidden{display:none}
+  </style>
+</head>
+<body>
+  <!-- Put player.png in the same folder as this file -->
+  <img id="playerAuto" src="player.png" alt="" class="hidden" />
+
+  <div id="stageWrap">
+    <canvas id="game" width="900" height="300" aria-label="Game canvas"></canvas>
+  </div>
+
+  <script src="game.js"></script>
+  <script>
+    // notify game to resize when container or window changes
+    const wrap = document.getElementById('stageWrap');
+    function dispatchResize() { window.dispatchEvent(new Event('game-resize')); }
+    window.addEventListener('resize', dispatchResize);
+    const ro = new ResizeObserver(dispatchResize);
+    ro.observe(wrap);
+    dispatchResize();
+  </script>
+</body>
+</html>

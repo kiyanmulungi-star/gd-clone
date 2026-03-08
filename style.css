@@ -1,0 +1,75 @@
+/* Logo base */
+#gameLogo {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  z-index: 10010;
+  display: block;
+  width: clamp(56px, 10vw, 120px); /* responsive size */
+  height: auto;
+  padding: 6px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.06);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-origin: center;
+  transition: transform 160ms cubic-bezier(.2,.9,.2,1), opacity 160ms ease, filter 160ms ease;
+  cursor: default;
+  user-select: none;
+  pointer-events: auto;
+  outline: none;
+}
+
+/* Hover / active feedback */
+#gameLogo:hover {
+  transform: translateY(-3px) scale(1.02);
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.45));
+}
+#gameLogo:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Keyboard focus for accessibility */
+#gameLogo:focus {
+  box-shadow: 0 0 0 4px rgba(184,255,176,0.14), 0 8px 22px rgba(0,0,0,0.45);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Small screens tweak */
+@media (max-width: 420px) {
+  #gameLogo {
+    left: 8px;
+    top: 8px;
+    width: clamp(48px, 16vw, 80px);
+    padding: 4px;
+    border-radius: 8px;
+  }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  #gameLogo {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Optional: subtle pulse when Play overlay is visible
+   Add class .prestart to body while waiting to start the game */
+body.prestart #gameLogo {
+  animation: logoPulse 2000ms ease-in-out infinite;
+  opacity: 0.98;
+}
+@keyframes logoPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* Dark mode variant (if you want a different background) */
+@media (prefers-color-scheme: dark) {
+  #gameLogo {
+    background: rgba(255,255,255,0.04);
+  }
+}
