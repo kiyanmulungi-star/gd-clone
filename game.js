@@ -29,8 +29,11 @@
     { color: '#ff7a18', speedMul: 1.10 },
     { color: '#18b2ff', speedMul: 1.25 },
     { color: '#8a18ff', speedMul: 1.45 },
-    { color: '#ff188f', speedMul: 1.70 }
+    { color: '#ff188f', speedMul: 1.70 },
+    { color: '#ff6118', speedMul: 2.00 },
+     { color: '#a3ff18', speedMul: 2.00 },
   ];
+
 
   const STORAGE_KEY_HIGHSCORE = 'gd_highscore_v1';
   const STORAGE_KEY_MUTED = 'gd_muted_v1';
