@@ -216,7 +216,7 @@
     titleWrap.style.maxWidth = '420px';
 
     const titleEl = document.createElement('div');
-    titleEl.textContent = 'GD Clone';
+    titleEl.textContent = 'Temu GD';
     titleEl.style.display = 'inline-block';
     titleEl.style.padding = '6px 14px';
     titleEl.style.fontFamily = '"Press Start 2P", "VT323", monospace, sans-serif';
